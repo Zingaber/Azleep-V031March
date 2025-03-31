@@ -54,7 +54,9 @@ const nextConfig = {
   allowedDevOrigins: ['192.168.1.41'],
   // Add experimental features
   experimental: {
-    serverActions: true
+    serverActions: {
+      allowedOrigins: ['192.168.1.41']
+    }
   }
 };
 
