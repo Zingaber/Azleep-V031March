@@ -49,7 +49,9 @@ const nextConfig = {
         ],
       },
     ];
-  }
+  },
+  // Add allowed origins for development
+  allowedDevOrigins: ['192.168.1.41']
 };
 
 module.exports = nextConfig; 

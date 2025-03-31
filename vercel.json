@@ -58,6 +58,10 @@
       "dest": "/login"
     },
     {
+      "src": "/sleep-cast",
+      "dest": "/sleep-cast"
+    },
+    {
       "src": "/api/(.*)",
       "dest": "/api/$1"
     },
