@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+import Image from "next/legacy/image"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ChatBubble } from "@/components/ui/chat-bubble"
@@ -40,7 +40,7 @@ export default function HomePage() {
                 <Image
                   src="/genie.png"
                   alt="Sleep Genie"
-                  fill
+                  layout="fill"
                   className="object-cover rounded-full"
                 />
                 <div
