@@ -20,7 +20,7 @@ const nextConfig = {
   compress: true,
   trailingSlash: true,
   images: {
-    domains: [],
+    domains: ['localhost', '192.168.1.41'],
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [],
     unoptimized: true
@@ -48,6 +48,15 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: '/api/:path*',
+        headers: [
+          { key: 'Access-Control-Allow-Credentials', value: 'true' },
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+          { key: 'Access-Control-Allow-Methods', value: 'GET,DELETE,PATCH,POST,PUT' },
+          { key: 'Access-Control-Allow-Headers', value: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version' },
+        ]
+      }
     ];
   },
   // Add allowed origins for development
