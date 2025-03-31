@@ -1,9 +1,16 @@
 {
   "version": 2,
   "buildCommand": "npm run build",
-  "installCommand": "npm install --legacy-peer-deps",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
   "framework": "nextjs",
-  "regions": ["iad1"],
+  "regions": ["bom1"],
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
   "functions": {
     "app/api/*": {
       "memory": 1024,
@@ -14,6 +21,14 @@
     {
       "source": "/(.*)",
       "headers": [
+        {
+          "key": "X-DNS-Prefetch-Control",
+          "value": "on"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
@@ -30,20 +45,37 @@
     }
   ],
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/", "dest": "/" },
-    { "src": "/home", "dest": "/home" },
-    { "src": "/onboarding", "dest": "/onboarding" },
-    { "src": "/journal", "dest": "/journal" },
-    { "src": "/challenges", "dest": "/challenges" },
-    { "src": "/companion", "dest": "/companion" },
-    { "src": "/login", "dest": "/login" },
-    { "src": "/rewards", "dest": "/rewards" },
-    { "src": "/sleep-cast", "dest": "/sleep-cast" },
-    { "src": "/sleepcast", "dest": "/sleepcast" },
-    { "src": "/social", "dest": "/social" },
-    { "src": "/soundscapes", "dest": "/soundscapes" },
-    { "src": "/voice-chat", "dest": "/voice-chat" },
-    { "src": "/(.*)", "dest": "/404" }
+    {
+      "src": "/",
+      "dest": "/"
+    },
+    {
+      "src": "/home",
+      "dest": "/home"
+    },
+    {
+      "src": "/onboarding",
+      "dest": "/onboarding"
+    },
+    {
+      "src": "/journal",
+      "dest": "/journal"
+    },
+    {
+      "src": "/challenges",
+      "dest": "/challenges"
+    },
+    {
+      "src": "/login",
+      "dest": "/login"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
   ]
 } 
