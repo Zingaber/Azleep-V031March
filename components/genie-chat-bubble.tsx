@@ -10,7 +10,7 @@ interface GenieChatBubbleProps {
   className?: string
   showAvatar?: boolean
   genieState?: "awake" | "sleepy" | "dreaming" | "energetic"
-  genieLevel?: 1 | 2 | 3 | 4 | 5
+  genieLevel?: number
   pointsReward?: number
 }
 

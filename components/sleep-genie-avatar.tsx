@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { Moon, Sun, Cloud, Stars } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
 type GenieState = "awake" | "sleepy" | "dreaming" | "energetic"
 type TimeOfDay = "morning" | "day" | "evening" | "night"
@@ -14,6 +15,8 @@ interface SleepGenieAvatarProps {
   className?: string
   pulseEffect?: boolean
   showBackground?: boolean
+  level?: number
+  showLevelBadge?: boolean
 }
 
 export function SleepGenieAvatar({
@@ -23,6 +26,8 @@ export function SleepGenieAvatar({
   className,
   pulseEffect = false,
   showBackground = true,
+  level,
+  showLevelBadge = false,
 }: SleepGenieAvatarProps) {
   const [isAnimating, setIsAnimating] = useState(false)
 
@@ -105,6 +110,13 @@ export function SleepGenieAvatar({
           {getStateIcon()}
         </div>
       </div>
+
+      {/* Level badge */}
+      {showLevelBadge && level !== undefined && (
+        <Badge className="absolute -bottom-1 -right-1 h-5 w-5 flex items-center justify-center p-0 bg-primary text-primary-foreground text-xs font-bold">
+          {level}
+        </Badge>
+      )}
 
       {/* Animated particles around the avatar for certain states */}
       {(state === "dreaming" || state === "energetic") && (
