@@ -59,8 +59,6 @@ const nextConfig = {
       }
     ];
   },
-  // Add allowed origins for development
-  allowedDevOrigins: ['192.168.1.41'],
   // Add experimental features
   experimental: {
     serverActions: {
