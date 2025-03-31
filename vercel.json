@@ -31,6 +31,19 @@
   ],
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
+    { "src": "/", "dest": "/" },
+    { "src": "/home", "dest": "/home" },
+    { "src": "/onboarding", "dest": "/onboarding" },
+    { "src": "/journal", "dest": "/journal" },
+    { "src": "/challenges", "dest": "/challenges" },
+    { "src": "/companion", "dest": "/companion" },
+    { "src": "/login", "dest": "/login" },
+    { "src": "/rewards", "dest": "/rewards" },
+    { "src": "/sleep-cast", "dest": "/sleep-cast" },
+    { "src": "/sleepcast", "dest": "/sleepcast" },
+    { "src": "/social", "dest": "/social" },
+    { "src": "/soundscapes", "dest": "/soundscapes" },
+    { "src": "/voice-chat", "dest": "/voice-chat" },
+    { "src": "/(.*)", "dest": "/404" }
   ]
 } 

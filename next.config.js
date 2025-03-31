@@ -18,10 +18,12 @@ const nextConfig = {
   // Remove serverExternalPackages to avoid conflict with transpilePackages
   poweredByHeader: false,
   compress: true,
+  trailingSlash: true,
   images: {
     domains: [],
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [],
+    unoptimized: true
   },
   // Handle API timeouts
   serverRuntimeConfig: {
