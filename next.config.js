@@ -8,8 +8,12 @@ const nextConfig = {
     }
     return config;
   },
-  // Enable output file tracing
-  output: 'standalone',
+  // For Vercel deployment
+  experimental: {
+    serverComponentsExternalPackages: ["date-fns"]
+  },
+  poweredByHeader: false,
+  compress: true,
 };
 
 module.exports = nextConfig; 
