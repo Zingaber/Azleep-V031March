@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   webpack: (config, { dev, isServer }) => {
     // Disable webpack cache in development to avoid issues with spaces in paths
     if (dev) {
