@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-export async function GET() {
+export async function GET(): Promise<NextResponse> {
   try {
     return NextResponse.json(
       { 
@@ -14,7 +14,7 @@ export async function GET() {
     return NextResponse.json(
       { 
         status: 'error',
-        message: error.message 
+        message: error instanceof Error ? error.message : 'Unknown error'
       },
       { status: 500 }
     );
