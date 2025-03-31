@@ -8,10 +8,7 @@ const nextConfig = {
     }
     return config;
   },
-  // For Vercel deployment
-  experimental: {
-    serverComponentsExternalPackages: ["date-fns"]
-  },
+  // Remove serverExternalPackages to avoid conflict with transpilePackages
   poweredByHeader: false,
   compress: true,
 };
