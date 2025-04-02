@@ -61,7 +61,9 @@ const nextConfig = {
   },
   // Add experimental features
   experimental: {
-    serverActions: true
+    serverActions: {
+      allowedOrigins: ['localhost:3000', 'azleep-ui.vercel.app']
+    }
   }
 };
 
